@@ -1,10 +1,10 @@
 <div>
-    <div style="text-align: center; padding: 1rem;">
+    <div class="bx--text-align-center bx--padding-1">
         <h2>Pokemon List</h2>
     </div>
     <ng-container *ngIf="pokemonList$ | async as pokemonList">
-        <div style="margin: auto; width: 70%; padding: 10px;">
-            <div style="max-height: 40rem; max-width: 100rem; overflow-y: scroll;">
+        <div class="pokemon-list-container bx--margin-auto">
+            <div class="pokemon-list">
                 <ibm-tile-group (selected)="handleSelected($event)" [multiple]="false">
                     <ibm-selection-tile
                         *ngFor="let pokemon of pokemonList"

@@ -8,10 +8,10 @@
     <section class="bx--modal-content">
         <ng-container *ngIf="encounterLocations$ | async as locations">
             <ng-container *ngIf="!locations.length">
-                <h3 style="font-style: italic;">No encounter locations found for this pokemon.</h3>
+                <h3 class="bx--font-style-italic">No encounter locations found for this pokemon.</h3>
             </ng-container>
             <ng-container *ngIf="locations.length">
-                <div style="padding-left: 1rem;">
+                <div class="bx--padding-left-1">
                     <ul ibmList>
                         <ng-container *ngFor="let location of locations;">
                             <li ibmListItem>
@@ -20,7 +20,7 @@
                                     <ul ibmList>
                                         <ng-container *ngFor="let version of location.version_details">
                                             <li ibmListItem>
-                                                <span style="font-style: italic;">{{ version?.version?.name }}</span>
+                                                <span class="bx--font-style-italic">{{ version?.version?.name }}</span>
                                             </li>
                                         </ng-container>
                                     </ul>

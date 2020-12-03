@@ -1,2 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~carbon-components/scss/globals/scss/styles.scss";
+
+.bx--text-align-center {
+    text-align: center;
+}
+
+.bx--font-style-italic {
+    font-style: italic;
+}
+
+.bx--display-flex {
+    display: flex;
+}
+
+.bx--margin-auto {
+    margin: auto;
+}
+
+.bx--full-width {
+    width: 100%;
+}
+
+.bx--max-half-width-percent {
+    max-width: 50%;
+}
+
+.bx--half-width-percent {
+    width: 50%;
+}
+
+.bx--overflow-y-scroll {
+    overflow-y: scroll;
+}
+
+.bx--margin-bottom-1 {
+    margin-bottom: 1rem;
+}
+
+.bx--padding-left-1 {
+    padding-left: 1rem;
+}
+
+.bx--padding-1 {
+    padding: 1rem;
+}

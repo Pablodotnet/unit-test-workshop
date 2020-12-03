@@ -1,11 +1,11 @@
 <ng-container *ngIf="pokemon$ | async as pokemon">
-    <section style="text-align: center; background-color:lightgray; padding: 2rem;">
+    <section class="pokemon-name-container bx--text-align-center">
         <h2>{{ pokemon.name | uppercase }}</h2>
     </section>
-    <section style="display: flex; margin: auto; width: 80%;">
-        <div class="pokemon-pictures-card-container" style="width: 50%; padding: 0.5rem;">
+    <section class="pokemon-details-container bx--display-flex bx--margin-auto">
+        <div class="pokemon-pictures-card-container bx--half-width-percent">
             <div class="card">
-                <div style="text-align: center;">
+                <div class="bx--text-align-center">
                     <h3>Pictures</h3>
                 </div>
                 <ng-container *ngIf="!!pokemon.sprites">
@@ -19,7 +19,7 @@
                 </ng-container>
             </div>
         </div>
-        <div class="pokemon-data-container" style="width: 50%; padding: 0.5rem;">
+        <div class="pokemon-data-container bx--half-width-percent">
             <div class="card">
                 <h4>Pokemon Id: {{ pokemon.id }}</h4>
                 <div ibmRow>
@@ -27,7 +27,7 @@
                         <ng-container *ngIf="!!pokemon.game_indices">
                             <div>
                                 <h4>Games where it appears: {{ pokemon.game_indices.length }}</h4>
-                                <div style="padding-left: 1.5rem;">
+                                <div class="pokemon-game-indices-list">
                                     <ol ibmList>
                                         <ng-container *ngFor="let game of pokemon.game_indices;">
                                             <li ibmListItem>{{ game.version.name | uppercase }}</li>
@@ -39,19 +39,19 @@
                     </div>
                     <div ibmCol [columnNumbers]="{'lg':6, 'md': 4, 'sm': 2}">
                         <ng-container *ngIf="!!pokemon.height">
-                            <div style="margin-bottom: 1rem;">
+                            <div class="bx--margin-bottom-1">
                                 <h4>Height: {{ pokemon.height }} dm</h4>
                             </div>
                         </ng-container>
                         <ng-container *ngIf="!!pokemon.weight">
-                            <div style="margin-bottom: 1rem;">
+                            <div class="bx--margin-bottom-1">
                                 <h4>Weight: {{ pokemon.weight }} hg</h4>
                             </div>
                         </ng-container>
                         <ng-container *ngIf="!!pokemon.abilities">
-                            <div style="margin-bottom: 1rem;">
+                            <div class="bx--margin-bottom-1">
                                 <h4>Abilities: {{ pokemon.abilities.length }}</h4>
-                                <div style="padding-left: 1rem;">
+                                <div class="bx--padding-left-1">
                                     <ul ibmList>
                                         <ng-container *ngFor="let ability of pokemon.abilities;">
                                             <li ibmListItem>{{ ability.ability.name | uppercase }}</li>
@@ -61,14 +61,14 @@
                             </div>
                         </ng-container>
                         <ng-container *ngIf="!!pokemon.moves">
-                            <div style="margin-bottom: 1rem;">
+                            <div class="bx--margin-bottom-1">
                                 <h4>Moves: {{ pokemon.moves.length }}</h4>
                             </div>
                         </ng-container>
                         <ng-container *ngIf="!!pokemon.stats">
-                            <div style="margin-bottom: 1rem;">
+                            <div class="bx--margin-bottom-1">
                                 <h4>Stats:</h4>
-                                <div style="padding-left: 1rem;">
+                                <div class="bx--padding-left-1">
                                     <ul ibmList>
                                         <ng-container *ngFor="let stat of pokemon.stats">
                                             <li ibmListItem>
@@ -84,20 +84,20 @@
             </div>
         </div>
     </section>
-    <section style="margin: auto; width: 79%;" *ngIf="!!pokemon.location_area_encounters">
-        <div style="width: 100%">
+    <section class="options-buttons-container bx--margin-auto" *ngIf="!!pokemon.location_area_encounters">
+        <div class="bx--full-width">
             <button
                 ibmButton="secondary"
                 type="button"
                 (click)="handleReturnToLanding()"
-                style="width: 50%; max-width: 50%; text-align: center;">
+                class="bx--max-half-width-percent bx--half-width-percent bx--text-align-center">
                     Back
             </button>
             <button
                 ibmButton
                 type="button"
                 (click)="handleOpenLocationsModal(pokemon.location_area_encounters)"
-                style="width: 50%; max-width: 50%; text-align: center;">
+                class="bx--max-half-width-percent bx--half-width-percent bx--text-align-center">
                     See encounter locations
             </button>
         </div>
