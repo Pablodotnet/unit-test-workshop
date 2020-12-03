@@ -1,0 +1,18 @@
+<div>
+    <div style="text-align: center; padding: 1rem;">
+        <h2>Pokemon List</h2>
+    </div>
+    <ng-container *ngIf="pokemonList$ | async as pokemonList">
+        <div style="margin: auto; width: 70%; padding: 10px;">
+            <div style="max-height: 40rem; max-width: 100rem; overflow-y: scroll;">
+                <ibm-tile-group (selected)="handleSelected($event)" [multiple]="false">
+                    <ibm-selection-tile
+                        *ngFor="let pokemon of pokemonList"
+                        [value]="pokemon.url">
+                            {{ pokemon.name | uppercase }}
+                    </ibm-selection-tile>
+                </ibm-tile-group>
+            </div>
+        </div>
+    </ng-container>
+</div>
