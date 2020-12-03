@@ -29,8 +29,6 @@ export class PokemonLandingComponent implements OnInit {
   handleSelected($event: { value: string; selected: boolean; name: string; }) {
     if (!!$event && !!$event.value) {
       const pokemonId = $event.value.split('/pokemon/')[1].split('/')[0];
-      console.log('🚀 ~ file: app.component.ts ~ line 30 ~ AppComponent ~ handleSelected ~ $event', $event);
-      console.log('🚀 ~ file: app.component.ts ~ line 31 ~ AppComponent ~ handleSelected ~ pokemonId', pokemonId);
       this.router.navigateByUrl(`/pokemon/${pokemonId}`);
     }
   }

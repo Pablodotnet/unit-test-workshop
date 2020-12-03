@@ -24,7 +24,6 @@ export class PokemonLocationsModalComponent extends BaseModal implements OnInit 
 
   ngOnInit(): void {
     if (!!this.locationsUrl) {
-      console.log('this.locationsUrl: ', this.locationsUrl);
       this.encounterLocations$ = this.pokemonService.getPokemonEncounterLocations(this.locationsUrl);
     }
   }
