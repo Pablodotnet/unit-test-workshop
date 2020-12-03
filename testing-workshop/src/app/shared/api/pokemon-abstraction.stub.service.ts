@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from '@interfaces/Pokemon';
+import { Pokemon, PokemonResponse } from '@interfaces/Pokemon';
 import { MockEncounterLocations, MockPokemon, MockPokemonList } from '@mocks/PokemonList';
 import { Observable, of } from 'rxjs';
 
@@ -10,11 +10,17 @@ export class PokemonAbstractionServiceStub {
 
   constructor() { }
 
-  getAllPokemon(): Observable<Pokemon[]> {
-    return of(MockPokemonList);
+  getAllPokemon(): Observable<PokemonResponse> {
+    const mockResponse = {
+      count: 0,
+      next: '',
+      previous: '',
+      results: [],
+    };
+    return of(mockResponse);
   }
 
-  getPokemonByUrl(pokemonUrl: number): Observable<Pokemon> {
+  getPokemonByUrl(pokemonUrl: string): Observable<Pokemon> {
     return of(MockPokemon);
   }
 
