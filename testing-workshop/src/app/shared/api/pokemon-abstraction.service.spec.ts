@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { PokemonAbstractionService } from './pokemon-abstraction.service';
@@ -6,7 +7,11 @@ describe('PokemonAbstractionService', () => {
   let service: PokemonAbstractionService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule,
+      ]
+    });
     service = TestBed.inject(PokemonAbstractionService);
   });
 

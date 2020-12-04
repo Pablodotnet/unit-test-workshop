@@ -18,6 +18,7 @@ import { PokemonLandingComponent } from './pages/pokemon-landing/pokemon-landing
 import {
   PokemonLocationsModalComponent
 } from './pages/pokemon-details/components/pokemon-locations-modal/pokemon-locations-modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     TilesModule,

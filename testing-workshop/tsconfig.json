@@ -20,6 +20,7 @@
       "@mocks/*": ["app/shared/mocks/*"],
       "@interfaces/*": ["app/shared/interfaces/*"],
       "@services/*": ["app/shared/services/*"],
+      "@spies/*": ["app/shared/spies/*"],
     }
   },
   "angularCompilerOptions": {
