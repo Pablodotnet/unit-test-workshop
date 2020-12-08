@@ -22,6 +22,7 @@ export interface Pokemon {
     game_indices: any[];
     stats: any[];
     moves: any[];
+    location_area_encounters?: string;
 }
 
 export interface ShortPokemonType {

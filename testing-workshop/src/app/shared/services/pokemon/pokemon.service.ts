@@ -23,10 +23,6 @@ export class PokemonService {
     return this.pokemonApi.getPokemonById(id);
   }
 
-  getPokemonByUrl(url: string): Observable<Pokemon> {
-    return this.pokemonApi.getPokemonByUrl(url);
-  }
-
   getPokemonEncounterLocations(url: string): Observable<any> {
     return this.pokemonApi.getPokemonEncounterLocations(url);
   }

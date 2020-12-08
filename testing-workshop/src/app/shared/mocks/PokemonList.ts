@@ -19,9 +19,18 @@ export const MockPokemon: Pokemon = {
         front_shiny: 'http://pokeapi.co/media/sprites/pokemon/shiny/12.png',
     },
     abilities: [],
-    game_indices: [],
+    game_indices: [
+        {
+            game_index: 12,
+            version : {
+                name: 'white-2',
+                url: 'https://pokeapi.co/api/v2/version/22/'
+            }
+        }
+    ],
     stats: [],
     moves: [],
+    location_area_encounters: 'https://pokeapi.co/api/v2/pokemon/12/encounters',
 };
 
 export const MockPokemonList: Pokemon[] = [];

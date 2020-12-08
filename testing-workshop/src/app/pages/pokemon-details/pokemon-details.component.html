@@ -19,11 +19,11 @@
                 </ng-container>
             </div>
         </div>
-        <div class="pokemon-data-container bx--half-width-percent">
+        <div class="pokemon-data-card-container bx--half-width-percent">
             <div class="card">
-                <h4>Pokemon Id: {{ pokemon.id }}</h4>
+                <h4 class="pokemon-id">Pokemon Id: {{ pokemon.id }}</h4>
                 <div ibmRow>
-                    <div ibmCol [columnNumbers]="{'lg':6, 'md': 4, 'sm': 2}">
+                    <div ibmCol [columnNumbers]="{'lg':6, 'md': 4, 'sm': 2}" class="pokemon-game-indices-list-container">
                         <ng-container *ngIf="!!pokemon.game_indices">
                             <div>
                                 <h4>Games where it appears: {{ pokemon.game_indices.length }}</h4>

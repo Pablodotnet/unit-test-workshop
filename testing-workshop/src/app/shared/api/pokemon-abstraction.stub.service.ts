@@ -20,10 +20,6 @@ export class PokemonAbstractionServiceStub {
     return of(mockResponse);
   }
 
-  getPokemonByUrl(pokemonUrl: string): Observable<Pokemon> {
-    return of(MockPokemon);
-  }
-
   getPokemonById(pokemonId: number): Observable<Pokemon> {
     return of(MockPokemon);
   }

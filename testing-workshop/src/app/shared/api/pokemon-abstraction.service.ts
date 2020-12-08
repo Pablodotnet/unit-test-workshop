@@ -18,10 +18,6 @@ export class PokemonAbstractionService {
     return this.http.get<PokemonResponse>(this.apiUrl);
   }
 
-  getPokemonByUrl(pokemonUrl: string): Observable<Pokemon> {
-    return this.http.get<Pokemon>(pokemonUrl);
-  }
-
   getPokemonById(pokemonId: number): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${this.apiUrl}/${pokemonId}`);
   }
