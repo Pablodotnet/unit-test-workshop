@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core.module';
 import {
   ButtonModule,
+  ComboBoxModule,
   GridModule,
   ListModule,
+  LoadingModule,
   PlaceholderModule,
   PlaceholderService,
+  TableModule,
   TilesModule
 } from 'carbon-components-angular';
 import { ModalModule, ModalService } from 'carbon-components-angular/modal';
@@ -19,13 +22,19 @@ import {
   PokemonLocationsModalComponent
 } from './pages/pokemon-details/components/pokemon-locations-modal/pokemon-locations-modal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TestingComponent } from './pages/testing/testing.component';
+import { SelectDropdownOptionPipe } from './pages/testing/pipes/selectDropdownOption/select-dropdown-option.pipe';
+import { TablesComponent } from './pages/tables/tables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonDetailsComponent,
     PokemonLandingComponent,
-    PokemonLocationsModalComponent
+    PokemonLocationsModalComponent,
+    TestingComponent,
+    SelectDropdownOptionPipe,
+    TablesComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +47,9 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonModule,
     PlaceholderModule,
     ModalModule,
+    ComboBoxModule,
+    TableModule,
+    LoadingModule,
   ],
   providers: [
     ModalService,

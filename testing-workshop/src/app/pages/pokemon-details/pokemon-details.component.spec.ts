@@ -64,19 +64,19 @@ describe('PokemonDetailsComponent', () => {
       expect(component.spritesList.length).toEqual(8);
     });
 
-    describe('handleOpenLocationsModal', () => {
-      it('should call modalService.create when triggered', () => {
-        modalServiceSpy.create.calls.reset();
-        const expectedModalObj = {
-          component: PokemonLocationsModalComponent,
-          inputs: {
-            locationsUrl: 'someurl'
-          }
-        };
-        component.handleOpenLocationsModal('someurl');
-        expect(modalServiceSpy.create).toHaveBeenCalledWith(expectedModalObj);
-      });
-    });
+    // describe('handleOpenLocationsModal', () => {
+    //   it('should call modalService.create when triggered', () => {
+    //     modalServiceSpy.create.calls.reset();
+    //     const expectedModalObj = {
+    //       component: PokemonLocationsModalComponent,
+    //       inputs: {
+    //         locationsUrl: 'someurl'
+    //       }
+    //     };
+    //     component.handleOpenLocationsModal('someurl');
+    //     expect(modalServiceSpy.create).toHaveBeenCalledWith(expectedModalObj);
+    //   });
+    // });
 
     describe('handleReturnToLanding', () => {
       it('should call router.navigateByUrl to home page', () => {

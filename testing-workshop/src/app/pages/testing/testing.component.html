@@ -1,0 +1,16 @@
+<section class="testing-page--container">
+    <div class="bx--margin-auto">
+        <section class="bx--text-align-center">
+            <h2>Testing Components</h2>
+        </section>
+        <section class="bx--padding-1 bx--text-align-center">
+            <ibm-combo-box
+                class="bq--languages-options-dropdown"
+                placeholder="Select a pokemon"
+                (selected)="handleInputValueSelection($event, 0)"
+                [items]="pokemonAvailableOptions | selectDropdownOption:selectedPokemon">
+                    <ibm-dropdown-list></ibm-dropdown-list>
+            </ibm-combo-box>
+        </section>
+    </div>
+</section>

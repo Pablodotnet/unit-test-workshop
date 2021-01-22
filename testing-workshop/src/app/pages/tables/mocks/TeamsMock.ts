@@ -1,0 +1,15 @@
+export const TeamsMock = [
+    { managerCnum: '07111D744', cnum: '000CCS744', name: 'Suchitra C', country: 'CAN', bu: 'GLM', band: 'A' },
+    { managerCnum: '07111D744', cnum: '01664Q744', name: 'Soumyakeshava Channakeshava', country: 'USA', bu: 'INDP', band: 'A' },
+    { managerCnum: '07111D744', cnum: '738668744', name: 'Raj Gopalakrishnan', country: 'USA', bu: 'RES', band: 'C' },
+    { managerCnum: '07111D744', cnum: '597793744', name: 'Mamata Joshi', country: 'USA', bu: 'GBS', band: 'B' },
+    { managerCnum: '06265J744', cnum: '963768744', name: 'Vasanthi Buduvarthi', country: 'USA', bu: 'F&O', band: 'B' },
+    { managerCnum: '06265J744', cnum: '21151744', name: 'Shivaji Das', country: 'USA', bu: 'F&O', band: 'A' },
+    { managerCnum: '67221744', cnum: '6062744', name: 'Anto Raghavan', country: 'USA', bu: 'GTS', band: 'B' },
+    { managerCnum: '93309744', cnum: '708013744', name: 'Prabha Natarajan', country: 'USA', bu: 'GLM', band: 'A' },
+    { managerCnum: '93309744', cnum: '39855744', name: 'Arul Balasubramaniam', country: 'FRA', bu: 'GLM', band: 'A' },
+    { managerCnum: '139318897', cnum: '16986744', name: 'Amitava Das', country: 'FRA', bu: 'GBS', band: 'B' },
+    { managerCnum: '139318897', cnum: '03202I744', name: 'Soumya Avula', country: 'USA', bu: 'F&O', band: 'A' },
+    { managerCnum: '139318897', cnum: '428504744', name: 'Srinivas V Subrahmanya Jonnalagadda', country: 'USA', bu: 'CCS', band: 'B' },
+    { managerCnum: '000SIT744', cnum: '05423E744', name: 'Pavani Movva', country: 'USA', bu: 'CCS', band: 'C' },
+];
