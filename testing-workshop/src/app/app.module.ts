@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core.module';
 import {
   ButtonModule,
   ComboBoxModule,
@@ -22,8 +21,6 @@ import {
   PokemonLocationsModalComponent
 } from './pages/pokemon-details/components/pokemon-locations-modal/pokemon-locations-modal.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TestingComponent } from './pages/testing/testing.component';
-import { SelectDropdownOptionPipe } from './pages/testing/pipes/selectDropdownOption/select-dropdown-option.pipe';
 import { TablesComponent } from './pages/tables/tables.component';
 
 @NgModule({
@@ -32,15 +29,12 @@ import { TablesComponent } from './pages/tables/tables.component';
     PokemonDetailsComponent,
     PokemonLandingComponent,
     PokemonLocationsModalComponent,
-    TestingComponent,
-    SelectDropdownOptionPipe,
     TablesComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    CoreModule,
     TilesModule,
     GridModule,
     ListModule,

@@ -4,13 +4,15 @@
             <h2>Testing Components</h2>
         </section>
         <section class="bx--padding-1 bx--text-align-center">
-            <ibm-combo-box
-                class="bq--languages-options-dropdown"
-                placeholder="Select a pokemon"
-                (selected)="handleInputValueSelection($event, 0)"
-                [items]="pokemonAvailableOptions | selectDropdownOption:selectedPokemon">
-                    <ibm-dropdown-list></ibm-dropdown-list>
-            </ibm-combo-box>
+            <ul>
+                <ng-container *ngFor="let componentItem of componentsList">
+                    <li class="bx--margin-bottom-1">
+                        <a [routerLink]="componentItem.url">
+                            {{ componentItem.name }}
+                        </a>
+                    </li>
+                </ng-container>
+            </ul>
         </section>
     </div>
 </section>

@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PokemonLandingComponent } from './pages/pokemon-landing/pokemon-landing.component';
 import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
-import { TestingComponent } from './pages/testing/testing.component';
 import { TablesComponent } from './pages/tables/tables.component';
 
 const routes: Routes = [
   {
-    path: 'landing',
+    path: '',
     component: PokemonLandingComponent
   },
   {
@@ -19,8 +18,8 @@ const routes: Routes = [
     component: TablesComponent
   },
   {
-    path: '',
-    component: TestingComponent,
+    path: 'testing-components',
+    loadChildren: () => import('./pages/testing/testing.module').then(m => m.TestingModule)
   },
   {
     path: '**',
