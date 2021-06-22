@@ -1,0 +1,46 @@
+<section class="bx--padding-1">
+    <section class="bx--margin-bottom-1">
+        <h2>Date Picker Testing</h2>
+    </section>
+    <form [formGroup]="dateForm">
+        <section class="bx--margin-bottom-1">
+                <ibm-date-picker
+                    label="Year"
+                    [invalid]="dateForm.controls.year.invalid && dateForm.controls.year.touched"
+                    [invalidText]="invalidYearInput"
+                    placeholder="yyyy"
+                    dateFormat="Y"
+                    formControlName="year"
+                    (valueChange)="handleYearSelection($event)">
+                </ibm-date-picker>
+                <ng-template #invalidYearInput>
+                    <ng-container *ngIf="dateForm.controls.year.errors?.required">
+                        <span>This field is required.</span>
+                    </ng-container>
+                    <ng-container *ngIf="dateForm.controls.year.errors?.pattern">
+                        <span>Invalid pattern: yyyy</span>
+                    </ng-container>
+                </ng-template>
+        </section>
+        <section>
+            <ibm-label
+                [invalid]="dateForm.controls.yearInput.invalid && dateForm.controls.yearInput.touched"
+                [invalidText]="invalidYearTextInput">
+                    <span>Year Input</span>
+                    <input
+                        ibmText
+                        placeholder="yyyy"
+                        [invalid]="dateForm.controls.yearInput.invalid && dateForm.controls.yearInput.touched"
+                        formControlName="yearInput" />
+                        <ng-template #invalidYearTextInput>
+                            <span *ngIf="dateForm.controls.yearInput.errors?.required">
+                                This field is required.
+                            </span>
+                            <span *ngIf="dateForm.controls.yearInput.errors?.pattern">
+                                Invalid pattern: yyyy
+                            </span>
+                        </ng-template>
+            </ibm-label>
+        </section>
+    </form>
+</section>
