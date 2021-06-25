@@ -1,0 +1,17 @@
+<div class="tag-input" *ngIf="tags$ | async as tags">
+  <input
+    type="text"
+    [(ngModel)]="newTag"
+    [ngStyle]="{ 'padding-left.px': paddingLeft }"
+    (keydown.tab)="$event.preventDefault(); addTag(newTag);"
+    (keydown.enter)="addTag(newTag)"
+    (keydown.backspace)="newTag.length || removeTag(tags.length - 1)" />
+  <ul class="tags" #tagsUl>
+    <ng-container *ngFor="let tag of tags; let index = index;">
+        <li class="tag">
+          {{ tag }}
+          <button class="delete" (click)="removeTag(index)">x</button>
+        </li>
+    </ng-container>
+  </ul>
+</div>

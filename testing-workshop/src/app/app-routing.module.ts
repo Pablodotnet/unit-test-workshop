@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PokemonLandingComponent } from './pages/pokemon-landing/pokemon-landing.component';
 import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
 import { TablesComponent } from './pages/tables/tables.component';
+import { TagInputContainerComponent } from './pages/tag-input-container/tag-input-container.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'tables',
     component: TablesComponent
+  },
+  {
+    path: 'tag-input',
+    component: TagInputContainerComponent
   },
   {
     path: 'testing-components',

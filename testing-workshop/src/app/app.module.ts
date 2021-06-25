@@ -22,6 +22,9 @@ import {
 } from './pages/pokemon-details/components/pokemon-locations-modal/pokemon-locations-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TablesComponent } from './pages/tables/tables.component';
+import { TagInputComponent } from './pages/tag-input-container/tag-input/tag-input.component';
+import { TagInputContainerComponent } from './pages/tag-input-container/tag-input-container.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,10 +33,13 @@ import { TablesComponent } from './pages/tables/tables.component';
     PokemonLandingComponent,
     PokemonLocationsModalComponent,
     TablesComponent,
+    TagInputComponent,
+    TagInputContainerComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     TilesModule,
     GridModule,
