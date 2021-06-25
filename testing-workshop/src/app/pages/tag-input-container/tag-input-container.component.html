@@ -3,6 +3,17 @@
         <h2>Tag Input Component</h2>
     </section>
     <section class="bx--max-width-70-percent bx--margin-auto">
-        <app-tag-input></app-tag-input>
+        <form (keydown.enter)="$event.preventDefault()" (ngSubmit)="handleSubmit()" [formGroup]="testForm">
+            <div class="bx--margin-bottom-1">
+                <app-tag-input
+                    theme="dark"
+                    placeholder="Some other custom placeholder..."
+                    formControlName="someList">
+                </app-tag-input>
+            </div>
+            <div>
+                <button ibmButton type="submit">Submit</button>
+            </div>
+        </form>
     </section>
 </main>

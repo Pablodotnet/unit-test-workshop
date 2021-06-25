@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TablesComponent } from './pages/tables/tables.component';
 import { TagInputComponent } from './pages/tag-input-container/tag-input/tag-input.component';
 import { TagInputContainerComponent } from './pages/tag-input-container/tag-input-container.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,8 +39,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
+    // Carbon modules
     TilesModule,
     GridModule,
     ListModule,

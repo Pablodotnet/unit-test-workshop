@@ -1,17 +1,29 @@
-<div class="tag-input" *ngIf="tags$ | async as tags">
-  <input
-    type="text"
-    [(ngModel)]="newTag"
-    [ngStyle]="{ 'padding-left.px': paddingLeft }"
-    (keydown.tab)="$event.preventDefault(); addTag(newTag);"
-    (keydown.enter)="addTag(newTag)"
-    (keydown.backspace)="newTag.length || removeTag(tags.length - 1)" />
-  <ul class="tags" #tagsUl>
-    <ng-container *ngFor="let tag of tags; let index = index;">
-        <li class="tag">
-          {{ tag }}
-          <button class="delete" (click)="removeTag(index)">x</button>
-        </li>
-    </ng-container>
-  </ul>
+<div
+  *ngIf="tags$ | async as tags"
+  class="tag-input">
+    <input
+      type="text"
+      [placeholder]="placeholder"
+      [(ngModel)]="newTag"
+      [ngClass]="{
+        'dark-tag-input': theme === 'dark',
+        'light-tag-input': theme === 'light'
+      }"
+      [ngStyle]="{ 'padding-left.px': paddingLeft }"
+      (keydown.tab)="$event.preventDefault(); addTag(newTag);"
+      (keydown.enter)="addTag(newTag)"
+      (keydown.backspace)="newTag.length || removeTag(tags.length - 1)" />
+    <ul class="tags" #tagsUl>
+      <ng-container *ngFor="let tag of tags; let index = index;">
+          <li class="tag">
+            {{ tag }}
+            <button class="delete" (click)="removeTag(index)">
+              x
+              <!-- <svg ibmIcon="close" size="16" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet" aria-hidden="true" width="16" height="16" viewBox="0 0 32 32">
+                  <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path>
+              </svg> -->
+            </button>
+          </li>
+      </ng-container>
+    </ul>
 </div>
