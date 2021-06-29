@@ -4,15 +4,38 @@
     </section>
     <section class="bx--max-width-70-percent bx--margin-auto">
         <form (keydown.enter)="$event.preventDefault()" (ngSubmit)="handleSubmit()" [formGroup]="testForm">
-            <div class="bx--margin-bottom-1">
+            <div class="form-tag-input-container bx--margin-bottom-1 bx--margin-auto">
                 <app-tag-input
+                    [invalid]="testForm.controls.someList.invalid"
+                    [invalidText]="invalidListTemplate"
+                    [showLoadIcon]="isLoading"
                     theme="dark"
                     placeholder="Some other custom placeholder..."
                     formControlName="someList">
                 </app-tag-input>
             </div>
+            <ng-template #invalidListTemplate>
+                <ng-container *ngIf="testForm.controls.someList.errors?.required">
+                    <span>This item is required.</span>
+                </ng-container>
+                <ng-container *ngIf="testForm.controls.someList.errors?.hasDuplicates">
+                    <span>List has duplicated elements.</span>
+                </ng-container>
+            </ng-template>
+            <ng-container *ngIf="testForm.invalid">
+                <div>
+                    <p>Form is invalid.</p>
+                </div>
+            </ng-container>
             <div>
-                <button ibmButton type="submit">Submit</button>
+                <button
+                    class="bx--margin-right-1"
+                    ibmButton="secondary"
+                    type="button"
+                    (click)="handleSubmit()">
+                        Print form
+                </button>
+                <button [disabled]="testForm.invalid" ibmButton type="submit">Submit</button>
             </div>
         </form>
     </section>

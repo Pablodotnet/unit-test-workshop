@@ -6,7 +6,14 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+  ValidationErrors,
+  Validator
+} from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -18,10 +25,15 @@ import { BehaviorSubject } from 'rxjs';
       provide: NG_VALUE_ACCESSOR,
       multi: true,
       useExisting: TagInputComponent
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: TagInputComponent
     }
   ]
 })
-export class TagInputComponent implements OnInit, AfterViewInit, ControlValueAccessor {
+export class TagInputComponent implements OnInit, AfterViewInit, ControlValueAccessor, Validator {
   private tags = new BehaviorSubject<Array<any>>([]);
   tags$ = this.tags.asObservable();
 
@@ -37,8 +49,26 @@ export class TagInputComponent implements OnInit, AfterViewInit, ControlValueAcc
 
   @ViewChild('tagsUl') tagsUl: TemplateRef<any>;
 
+  /**
+   * Text to show when nothing is selected.
+   */
   @Input() placeholder = 'Write something...';
+  /**
+   * Theme for background color.
+   */
   @Input() theme: 'dark' | 'light' = 'dark';
+  /**
+   * Sets the invalid text.
+   */
+  @Input() invalidText: string | TemplateRef<any>;
+  /**
+   * Set to `true` for an invalid label component.
+   */
+  @Input() invalid = false;
+  /**
+   * Displays a loading icon on the input
+   */
+  @Input() showLoadIcon = false;
 
   onChange = (tags) => {};
 
@@ -113,6 +143,21 @@ export class TagInputComponent implements OnInit, AfterViewInit, ControlValueAcc
 
   setDisabledState(disabled: boolean) {
     this.disabled = disabled;
+  }
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    const tagsArray = control.value;
+    const hasDuplicates = someArray => someArray.some((item, index) => someArray.indexOf(item) !== index);
+    if (hasDuplicates(tagsArray)) {
+      return {
+        hasDuplicates: true
+      };
+    }
+    return null;
+  }
+
+  public isTemplate(value) {
+    return value instanceof TemplateRef;
   }
 
 }

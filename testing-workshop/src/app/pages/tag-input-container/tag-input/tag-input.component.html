@@ -1,13 +1,21 @@
 <div
   *ngIf="tags$ | async as tags"
-  class="tag-input">
+  class="tag-input"
+  [ngClass]="{'invalid-tag-input': invalid}">
+    <ng-container *ngIf="invalid">
+        <svg class="invalid-tag-input-icon" ibmIcon="warning--filled" size="16" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M8,1C4.2,1,1,4.2,1,8s3.2,7,7,7s7-3.1,7-7S11.9,1,8,1z M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2 c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z"></path><path d="M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8 c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z" data-icon-path="inner-path" opacity="0"></path></svg>
+    </ng-container>
+    <ng-container *ngIf="showLoadIcon">
+        <ibm-loading class="load-tag-input-icon" [isActive]="true" [size]="'sm'" [overlay]="false"></ibm-loading>
+    </ng-container>
     <input
       type="text"
       [placeholder]="placeholder"
       [(ngModel)]="newTag"
       [ngClass]="{
         'dark-tag-input': theme === 'dark',
-        'light-tag-input': theme === 'light'
+        'light-tag-input': theme === 'light',
+        'invalid-tag-input': invalid
       }"
       [ngStyle]="{ 'padding-left.px': paddingLeft }"
       (keydown.tab)="$event.preventDefault(); addTag(newTag);"
@@ -17,13 +25,14 @@
       <ng-container *ngFor="let tag of tags; let index = index;">
           <li class="tag">
             {{ tag }}
-            <button class="delete" (click)="removeTag(index)">
-              x
-              <!-- <svg ibmIcon="close" size="16" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet" aria-hidden="true" width="16" height="16" viewBox="0 0 32 32">
-                  <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path>
-              </svg> -->
-            </button>
+            <button class="delete" (click)="removeTag(index)">x</button>
           </li>
       </ng-container>
     </ul>
+</div>
+<div *ngIf="invalid" class="bx--tag-input-error">
+    <ng-container *ngIf="!isTemplate(invalidText)">
+        <span>{{invalidText}}</span>
+    </ng-container>
+    <ng-template *ngIf="isTemplate(invalidText)" [ngTemplateOutlet]="invalidText"></ng-template>
 </div>

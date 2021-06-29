@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tag-input-container',
@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class TagInputContainerComponent implements OnInit {
 
   testForm: FormGroup;
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder
@@ -20,12 +21,12 @@ export class TagInputContainerComponent implements OnInit {
 
   setForm() {
     this.testForm = this.formBuilder.group({
-      someList: [['hi', 'bye']],
+      someList: [['hi', 'bye'], Validators.required],
     });
   }
 
   handleSubmit() {
-    console.log('this.testForm.value: ', this.testForm.value);
+    console.log('this.testForm: ', this.testForm);
   }
 
 }

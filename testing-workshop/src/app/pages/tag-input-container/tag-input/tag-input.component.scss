@@ -1,3 +1,7 @@
+::ng-deep .invalid-tag-input > ibm-loading {
+    right: 2rem !important;
+}
+
 .tag-input {
   position: relative;
 
@@ -22,6 +26,16 @@
     left: 10px;
     max-width: 75%;
     overflow-x: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+
+    &::-webkit-scrollbar {
+      /* WebKit */
+      width: 0;
+      height: 0;
+    }
   }
 
   .tag {
@@ -40,6 +54,38 @@
   input {
     width: 100%;
     padding: 10px;
+    border: none;
+    border-bottom: 1px solid #8d8d8d;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    &:focus {
+        outline: 2px solid #0f62fe;
+        outline-offset: -2px;
+    }
+  }
+
+  .invalid-tag-input:not(:focus) {
+    outline: 2px solid #da1e28;
+    outline-offset: -2px;
+  }
+
+  .invalid-tag-input-icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    fill: #da1e28;
+    transform: translateY(-50%);
+  }
+
+  .load-tag-input-icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    ::ng-deep .bx--loading--small {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
   }
 
   .delete {
@@ -61,4 +107,15 @@
         background-color: #c6c6c6;
     }
   }
+}
+
+.bx--tag-input-error {
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.34;
+    letter-spacing: 0.32px;
+    max-height: 0;
+    margin: 0.25rem 0 0;
+    color: red;
 }
